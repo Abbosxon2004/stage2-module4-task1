@@ -16,13 +16,13 @@ public class H2ConnectionFactory implements ConnectionFactory {
         // Load properties from file
         Properties props = new Properties();
         try {
-            props.load(getClass().getResourceAsStream("/h2.properties"));
+            props.load(getClass().getResourceAsStream("/h2database.properties"));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         // Get the JDBC driver class
-        String driver = props.getProperty("jdbc.driver");
+        String driver = props.getProperty("jdbc_driver");
         if (driver != null) {
             try {
                 Class.forName(driver);
@@ -32,9 +32,9 @@ public class H2ConnectionFactory implements ConnectionFactory {
         }
 
         // Get the URL, username, and password for the database connection
-        String url = props.getProperty("jdbc.url");
-        String username = props.getProperty("jdbc.username");
-        String password = props.getProperty("jdbc.password");
+        String url = props.getProperty("db_url");
+        String username = props.getProperty("user");
+        String password = props.getProperty("password");
 
         try {
             // Create the database connection
