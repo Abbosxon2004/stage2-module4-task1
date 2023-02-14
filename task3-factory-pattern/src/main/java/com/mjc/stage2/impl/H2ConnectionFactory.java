@@ -31,6 +31,7 @@ public class H2ConnectionFactory implements ConnectionFactory {
             }
         }
 
+
         // Get the URL, username, and password for the database connection
         String url = props.getProperty("db_url");
         String username = props.getProperty("user");
